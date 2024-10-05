@@ -22,4 +22,17 @@ describe('Test for consent', () => {
   test('Verify fail consent when it is not given', () => {
     expect(processor.checkConsent(user)).toBe(false)
   })
+
+  test('A user younger than 18 cannot give consent', () => {
+    processor.checkAge(user, 12)
+    expect(user.consentGiven).toBe(false)
+  })
+  test('A user older than 18 can successfully give consent', () => {
+    processor.checkAge(user, 18)
+    expect(user.consentGiven).toBe(true)
+  })
+  test('verify that it is correctly revokes the consent', () => {
+    processor.revokeConsent(user)
+    expect(user.consentGiven).toBe(true)
+  })
 })
