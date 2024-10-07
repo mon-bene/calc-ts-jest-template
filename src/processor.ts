@@ -18,6 +18,6 @@ export class Processor {
   }
 
   revokeConsent(userInput: User): void {
-    userInput.consentGiven = true
+    userInput.consentGiven = false
   }
 }

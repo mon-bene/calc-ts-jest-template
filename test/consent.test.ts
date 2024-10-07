@@ -33,6 +33,6 @@ describe('Test for consent', () => {
   })
   test('verify that it is correctly revokes the consent', () => {
     processor.revokeConsent(user)
-    expect(user.consentGiven).toBe(true)
+    expect(user.consentGiven).toBe(false)
   })
 })
